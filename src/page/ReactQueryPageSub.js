@@ -15,14 +15,14 @@ const ReactQueryPageSub = () => {
             return {
                 queryKey: ["posts", id],
                 queryFn: ()=>fetchPostDetail(id),
-                // select:(data) =>{
-                //     return data.data;
-                // }
+                select:(data) =>{
+                    return data.data;
+                }
             }
         }),
         combine: (results) => {
             return {
-                data: results.map((result)=> result.data.data)
+                data: results.map((result)=> result.data)
             }
         }
     });
@@ -30,7 +30,8 @@ const ReactQueryPageSub = () => {
     console.log("ReactQuery-Sub", results);
 
     return (
-        <div>
+        <div className="page">
+            <h3>React Query Sub</h3>
         </div>
     );
 };
